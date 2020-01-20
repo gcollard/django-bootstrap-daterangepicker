@@ -2,7 +2,7 @@ from datetime import date, datetime
 
 from django import forms
 from django.core.exceptions import ValidationError
-from django.utils import six
+import six
 from django.utils.encoding import force_text
 from django.utils.text import format_lazy, gettext_lazy as _
 
