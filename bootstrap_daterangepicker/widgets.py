@@ -39,14 +39,11 @@ def common_dates(start_date=date.today()):
     return OrderedDict([
         ('Today', (start_date, start_date)),
         ('Yesterday', (start_date - one_day, start_date - one_day)),
-        ('This week', (start_date - timedelta(days=start_date.weekday()), start_date)),
-        ('Last week', (start_date - timedelta(days=start_date.weekday() + 7),
-                       start_date - timedelta(days=start_date.weekday() + 1))),
-        ('Week ago', (start_date - timedelta(days=7), start_date)),
-        ('This month', (start_date.replace(day=1), start_date)),
-        ('Last month', (add_month(start_date.replace(day=1), -1), start_date.replace(day=1) - one_day)),
-        ('3 months', (add_month(start_date, -3), start_date)),
-        ('Year', (add_month(start_date, -12), start_date)),
+        ('Last 7 Days', (start_date - timedelta(days=7), start_date)),
+        ('Last 30 Days', (start_date - timedelta(days=30), start_date)),
+        ('Last 3 Months', (add_month(start_date, -3), start_date)),
+        ('Last 6 Months', (add_month(start_date, -6), start_date)),
+        ('Last Year', (add_month(start_date, -12), start_date)),
         ])
 
 
