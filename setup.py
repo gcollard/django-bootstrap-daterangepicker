@@ -1,8 +1,8 @@
-import sys
-import pypandoc
+from io import open
 from setuptools import setup
 
-long_description = pypandoc.convert('README.md', 'rst')
+with open('README.md', 'r') as f:
+    long_description = f.read()
 
 setup(
     name='django-bootstrap-daterangepicker',
@@ -10,6 +10,7 @@ setup(
 
     description='A Django form field and widget wrapper for bootstrap-daterangepicker',
     long_description=long_description,
+    long_description_content_type='text/markdown',
 
     url='https://github.com/jckw/django-bootstrap-daterangepicker/',
 
