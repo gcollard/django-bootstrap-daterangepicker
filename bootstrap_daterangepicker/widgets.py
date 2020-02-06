@@ -8,6 +8,8 @@ from django import forms
 from django.utils import formats
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
+from django.core.serializers.json import DjangoJSONEncoder
+
 
 __all__ = ['DatePickerWidget', 'DateRangeWidget', 'DateTimeRangeWidget', 'add_month', 'common_dates']
 
@@ -112,7 +114,7 @@ class DateRangeWidget(forms.TextInput):
         # Update context for template
         context['widget']['picker'] = {
             'options': {
-                'json': mark_safe(json.dumps(picker_options)),
+                'json': mark_safe(json.dumps(picker_options, cls=DjangoJSONEncoder)),
                 'python': picker_options,
                 },
             'clearable': self.clearable(),
